@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+	<script type="text/javascript" src="StringFormat.js"></script>
+	<script type="text/javascript">
+      	document.write(StringFormat.format ( "Testing 1..2..3.. %(,d Aap!",[-50000]));
+	document.write("<BR>");
+	document.write(StringFormat.format ( "Percent sign: %%",[20]));
+	document.write("<BR>");
+
+	document.write(StringFormat.format ( "Duke's Birthday: %tc",[new Date("2014-12-16")]));
+	document.write("<BR>");
+
+
+	document.write(StringFormat.format ( "Duke's Birthday: %tF",[new Date("2014-12-16")]));
+	document.write("<BR>");
+
+	document.write(StringFormat.format ( "Duke's Birthday: %1$td-%1$tm-%1$tY",[new Date("2014-12-16")]));
+	document.write("<BR>");
+
+	document.write(StringFormat.format ( "Duke's Birthday: %1$ta %1$te %1$tb, %1$tY",[new Date("2014-12-16")]));
+	document.write("<BR>");
+
+	document.write(StringFormat.format ( "Duke's Birthday: %1$tA %1$te %1$tB, %1$tY",[new Date("2014-12-16")]));
+	document.write("<BR>");
+
+        document.write(StringFormat.format ( "Testing 1..2..3.. %05.0f Aap!",[-2.4]));
+	document.write("<BR>");
+        document.write(StringFormat.format ( "Testing 1..2..3.. %d Aap!",[5]));
+	document.write("<BR>");
+        document.write(StringFormat.format ( "Testing 1..2..3.. %.4f Aap!",[-2345238.4]));
+	document.write("<BR>");
+        document.write(StringFormat.format ( "Testing 1..2..3.. %.0f Aap!",[-2.4]));
+	document.write("<BR>");
+	document.write(StringFormat.format ( "Testing 1..2..3.. %,.5f Aap!",[-22222.44444]));
+	document.write("<BR>");
+
+	document.write(StringFormat.format ( "Testing 1..2..3.. %.2f Aap!",[-2.4]));
+	document.write("<BR>");
+        document.write(StringFormat.format ( "Testing 1..2..3.. &#x20ac; %.2f %.6f Aap!",[-2.4, 5.6]));
+	document.write("<BR>");
+        document.write(StringFormat.format ( "Testing 1..2..3.. &#x20ac; %1$.2f %1$.6f Aap!",[-2.4]));
+	</script>
+ </head>
+
+ <body>
+
+
+</script>
+
+ </body>
+
+ </html>
+
+
+
