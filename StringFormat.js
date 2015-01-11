@@ -547,8 +547,11 @@
 				var len = va.length;
 				if (dot < 0) dot = len;
 				var text = "";
-				var grpSep = ',';
-				var grpSize=3;
+				var grpSep = '\0';
+				var grpSize = 3;
+            			if (f.contains(MyFlags.GROUP))
+					grpSep = ',';
+
 				var zerochar = '0';
 				for (var j = 0; j < len; j++) 
 				{
@@ -561,6 +564,7 @@
 					{
 						var c = va.charAt(j);
 						text += c;
+
 						if (grpSep != '\0' && j != dot - 1 && ((((dot - j) % grpSize)+ grpSize) % grpSize== 1))
 						    text+=(grpSep);
 					}
