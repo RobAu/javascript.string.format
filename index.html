@@ -3,43 +3,47 @@
  <head>
 	<script type="text/javascript" src="StringFormat.js"></script>
 	<script type="text/javascript">
-      	document.write(StringFormat.format ( "Testing 1..2..3.. %(,d Aap!",[-50000]));
-	document.write("<BR>");
-	document.write(StringFormat.format ( "Percent sign: %%",[20]));
-	document.write("<BR>");
 
-	document.write(StringFormat.format ( "Duke's Birthday: %tc",[new Date("2014-12-16")]));
-	document.write("<BR>");
+	var example = function(string, input)
+	{
+		document.write("<TR>");
+	      	document.write("<TD><pre>");
+		document.write(string);
+		document.write("</pre></TD>");
+		document.write("<TD><pre>" +  input + "</pre></TD>");
+		document.write("<TD>" + StringFormat.format ( string,input) + "</TD>");
+		document.write("</TR>");
+	}
+	document.write("<TABLE border='1'>");
+	document.write("<TR>");
+      	document.write("<TD>");
+	document.write("Format string");
+	document.write("</TD>");
+      	document.write("<TD>");
+	document.write("Input data");
+	document.write("</TD>");
+	document.write("<TD>Formatted</TD>");
+	document.write("</TR>");
 
+	example( "String1 %s String2 %s ",["Aap","noot"]);
+	example( "Testing 1..2..3.. %(,d Aap!",[-50000]);
+	example( "Percent sign: %%",[20]);
+	example( "Duke's Birthday: %tc",[new Date("2014-12-16")]);
+	example( "Duke's Birthday: %tF",[new Date("2014-12-16")]);
+	example( "Duke's Birthday: %1$td-%1$tm-%1$tY",[new Date("2014-12-16")]);
+	example( "Duke's Birthday: %1$ta %1$te %1$tb, %1$tY",[new Date("2014-12-16")]);
+	example( "Duke's Birthday: %1$tA %1$te %1$tB, %1$tY",[new Date("2014-12-16")]);
+        example( "Testing 1..2..3.. %05.0f Aap!",[-2.4]);
+        example( "Testing 1..2..3.. %d Aap!",[5]);
+        example( "Testing 1..2..3.. %,.4f Aap!",[-2345238.4]);
+        example( "Testing 1..2..3.. %.0f Aap!",[-2.4]);
+	example( "Testing 1..2..3.. %,.5f Aap!",[-22222.44444]);
 
-	document.write(StringFormat.format ( "Duke's Birthday: %tF",[new Date("2014-12-16")]));
-	document.write("<BR>");
+	example( "Testing 1..2..3.. %.2f Aap!",[-2.4]);
+        example( "Testing 1..2..3.. &#x20ac; %.2f %.6f Aap!",[-2.4, 5.6]);
+        example( "Testing 1..2..3.. &#x20ac; %1$.2f %1$.6f Aap!",[-2.4]);
 
-	document.write(StringFormat.format ( "Duke's Birthday: %1$td-%1$tm-%1$tY",[new Date("2014-12-16")]));
-	document.write("<BR>");
-
-	document.write(StringFormat.format ( "Duke's Birthday: %1$ta %1$te %1$tb, %1$tY",[new Date("2014-12-16")]));
-	document.write("<BR>");
-
-	document.write(StringFormat.format ( "Duke's Birthday: %1$tA %1$te %1$tB, %1$tY",[new Date("2014-12-16")]));
-	document.write("<BR>");
-
-        document.write(StringFormat.format ( "Testing 1..2..3.. %05.0f Aap!",[-2.4]));
-	document.write("<BR>");
-        document.write(StringFormat.format ( "Testing 1..2..3.. %d Aap!",[5]));
-	document.write("<BR>");
-        document.write(StringFormat.format ( "Testing 1..2..3.. %.4f Aap!",[-2345238.4]));
-	document.write("<BR>");
-        document.write(StringFormat.format ( "Testing 1..2..3.. %.0f Aap!",[-2.4]));
-	document.write("<BR>");
-	document.write(StringFormat.format ( "Testing 1..2..3.. %,.5f Aap!",[-22222.44444]));
-	document.write("<BR>");
-
-	document.write(StringFormat.format ( "Testing 1..2..3.. %.2f Aap!",[-2.4]));
-	document.write("<BR>");
-        document.write(StringFormat.format ( "Testing 1..2..3.. &#x20ac; %.2f %.6f Aap!",[-2.4, 5.6]));
-	document.write("<BR>");
-        document.write(StringFormat.format ( "Testing 1..2..3.. &#x20ac; %1$.2f %1$.6f Aap!",[-2.4]));
+	document.write("</TABLE>");
 	</script>
  </head>
 

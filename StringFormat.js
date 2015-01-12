@@ -1,3 +1,18 @@
+/**
+  * StringFormat.js
+  *
+  * Provides formatting for javascript based on the java FormatString specification. 
+  * 
+  * See:  http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html
+  *
+  *
+  * Based on OPENJDK source for String.format() and Formatter.format()
+  *  
+  * Author: Rob Audenaerde
+  * Version: 0.1
+  * 
+  */ 
+
 	var StringFormat = new function()
 	{
 		var regex = /%(\d+\$)?([-#+ 0,(\<]*)?(\d+)?(\.\d+)?([tT])?([a-zA-Z%])/g;
@@ -380,8 +395,8 @@
 					}*/
 					case DateTime.ZONE:        // 'Z' (symbol)
 						var locale = "en-us";
-						month = t.toLocaleString(locale, { weekday: "short" });
-						text+= month;
+						zone = t.toLocaleTimeString(locale, { timeZoneName: "short" }).split(' ').pop(); //timezone is last element;
+						text+= zone;
 						break;	
 					// Date*/
 					case DateTime.NAME_OF_DAY_ABBREV:     // 'a'
@@ -499,7 +514,8 @@
 				}
 				switch(this.c)
 				{
-
+            				case Conversion.STRING:
+                				return this.printString(arg);
 					case Conversion.DECIMAL_FLOAT:
 						return this.printFloat(arg);
 					case Conversion.DECIMAL_INTEGER:
@@ -583,6 +599,11 @@
 		    		if (newW != -1 && neg && f.contains(MyFlags.PARENTHESES))
 		        		newW--;
 		    		return newW;
+			}
+			this.printString = function(value)
+			{
+				return ""+value;
+				
 			}
 			this.printInt = function(value, f, c)
 			{
