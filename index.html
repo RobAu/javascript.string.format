@@ -25,28 +25,30 @@
 	document.write("<TD>Formatted</TD>");
 	document.write("</TR>");
 
+        example( "Currency: &#x20ac %.2f %.6f",[-2.4, 5.6]);
+
+	example( "Argument ordering: %2$s String2 %1$s ",["Aap","noot"]);
 	example( "String1 %s String2 %s ",["Aap","noot"]);
 	example( "SI units: %.2i "       ,[1000.0]);
 	example( "SI units: %.0i "       ,[1000.0]);
 	example( "SI units: %.0i "       ,[1000.0]);
 	example( "SI units: &#x20ac; %.0i "       ,[1000.0]);
 	example( "Percentage: %.1p "       ,[1.2345]);
-	example( "Testing 1..2..3.. %(,d Aap!",[-50000]);
-	example( "Percent sign: %%",[20]);
-	example( "Duke's Birthday: %tc",[new Date("2014-12-16")]);
-	example( "Duke's Birthday: %tF",[new Date("2014-12-16")]);
-	example( "Duke's Birthday: %1$td-%1$tm-%1$tY",[new Date("2014-12-16")]);
-	example( "Duke's Birthday: %1$ta %1$te %1$tb, %1$tY",[new Date("2014-12-16")]);
-	example( "Duke's Birthday: %1$tA %1$te %1$tB, %1$tY",[new Date("2014-12-16")]);
-        example( "Testing 1..2..3.. %05.0f Aap!",[-2.4]);
-        example( "Testing 1..2..3.. %d Aap!",[5]);
-        example( "Testing 1..2..3.. %,.4f Aap!",[-2345238.4]);
-        example( "Testing 1..2..3.. %.0f Aap!",[-2.4]);
-	example( "Testing 1..2..3.. %,.5f Aap!",[-22222.44444]);
+	example( "Negative in parentheses %(,d !",[-50000]);
+	example( "Percent sign: %%",[]);
+	example( "Date: %tc",[new Date("2014-12-16")]);
+	example( "Date: %tF",[new Date("2014-12-16")]);
+	example( "Date: %1$td-%1$tm-%1$tY",[new Date("2014-12-16")]);
+	example( "Date: %1$ta %1$te %1$tb, %1$tY",[new Date("2014-12-16")]);
+	example( "Date: %1$tA %1$te %1$tB, %1$tY",[new Date("2014-12-16")]);
+        example( "Zero padding: %05.0f!",[-2.4]);
+        example( "Simple long: %d",[5]);
+        example( "4 decimals, grouped: %,.4f",[-2345238.4]);
+        example( "0 decimals: %.0f ",[-2.4]);
+	example( "5 decimals, grouped %,.5f",[-22222.44444]);
 
-	example( "Testing 1..2..3.. %.2f Aap!",[-2.4]);
-        example( "Testing 1..2..3.. &#x20ac; %.2f %.6f Aap!",[-2.4, 5.6]);
-        example( "Testing 1..2..3.. &#x20ac; %1$.2f %1$.6f Aap!",[-2.4]);
+	example( "2 decimals: %.2f ",[-2.4]);
+        example( "Currency: $ %1$.2f %1$.6f",[-2.4]);
 
 	document.write("</TABLE>");
 	</script>

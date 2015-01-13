@@ -758,11 +758,11 @@
 		{
 			var text = "";
 		        var results  = parseFormat(formatString);
+			var last = -1;
+			var lasto = -1;
 			for(var i = 0; i< results.length; i++)
 			{
-		
-				var last = -1;
-				var lasto = -1;
+	
 				var fs =results[i];
 				//console.log("Processing result: " +i);
 				var index = fs.getIndex();
