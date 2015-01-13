@@ -108,6 +108,8 @@
 
 		DateTime = 
 		{
+		
+
 			HOUR_OF_DAY_0 : 'H', // (00 - 23)
 			HOUR_0        : 'I', // (01 - 12)
 			HOUR_OF_DAY   : 'k', // (0 - 23) -- like H
@@ -156,6 +158,11 @@
 		}
 		Conversion =
 		{
+			//ADDITIONS!
+			SI            	    : 'i',
+			PERCENTAGE          : 'p',
+
+			//DEFAULT
 			DECIMAL_INTEGER     : 'd',
 			OCTAL_INTEGER       : 'o',
 			HEXADECIMAL_INTEGER : 'x',
@@ -516,6 +523,10 @@
 				{
             				case Conversion.STRING:
                 				return this.printString(arg);
+					case Conversion.SI:
+						return this.printSI(arg);
+					case Conversion.PERCENTAGE:
+						return this.printPercentage(arg);
 					case Conversion.DECIMAL_FLOAT:
 						return this.printFloat(arg);
 					case Conversion.DECIMAL_INTEGER:
@@ -647,8 +658,46 @@
 					return text;
 				}
 			}
-	 
-
+			this.printPercentage = function (arg)
+			{
+				if (isNaN(arg))
+				{
+					return this.f.contains(MyFlags.UPPERCASE)? "NAN" :"NaN";
+				}
+				else
+				{
+					var symbol = "%";
+					var text = "";
+					var neg = arg < 0.0;
+					var v = Math.abs(arg) * 100.0;
+					text += this.leadingSign(neg);
+					text += this.printDouble(v, this.f, 'f', this.precision, neg);
+					text += this.trailingSign(neg);
+					text += symbol;
+					return text;
+				}
+			}
+			this.printSI = function (arg)
+			{
+				if (isNaN(arg))
+				{
+					return this.f.contains(MyFlags.UPPERCASE)? "NAN" :"NaN";
+				}
+				else
+				{
+					var ex     = Math.floor(Math.log(arg) / Math.log(1000));
+    					var symbol = "KMGTPEZY".charAt(ex-1);
+					var text = "";
+					var neg = arg < 0.0;
+					var v = Math.abs(arg) / Math.pow( 1000, ex);
+					text += this.leadingSign(neg);
+					text += this.printDouble(v, this.f, 'f', this.precision, neg);
+					text += this.trailingSign(neg);
+					text += symbol;
+					return text;
+				}
+			}
+	
 
 			this.printFloat = function (arg)
 			{
