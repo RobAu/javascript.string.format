@@ -2,7 +2,7 @@
 
 Javascript implementation of java's String.format(), with additions to support formatting a percentage and postfix-SI, like 120M, 30K. 
 
-Basic start of porting Formatter.format() to javascript. Currently depends on .toLocaleString() for named-date formatting. See here for all options: See the documentation for the format-options at: http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html
+Basic start of porting Formatter.format() to javascript. Currently depends on .toLocaleString() for named-date formatting. See here for all options: http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html
 
 Supported conversions:
 
