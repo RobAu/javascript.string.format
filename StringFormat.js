@@ -685,11 +685,16 @@
 				}
 				else
 				{
-					var ex     = Math.floor(Math.log(arg) / Math.log(1000));
-    					var symbol = "KMGTPEZY".charAt(ex-1);
+					var v = 0.0;
+					var symbol ="";
+					if (arg!=0.0)
+					{ 
+						var ex     = Math.floor(Math.log(arg) / Math.log(1000));
+    						symbol = "KMGTPEZY".charAt(ex-1);
+						v = Math.abs(arg) / Math.pow( 1000, ex);
+					}
 					var text = "";
 					var neg = arg < 0.0;
-					var v = Math.abs(arg) / Math.pow( 1000, ex);
 					text += this.leadingSign(neg);
 					text += this.printDouble(v, this.f, 'f', this.precision, neg);
 					text += this.trailingSign(neg);
