@@ -1,8 +1,26 @@
 # StringFormat.js
 
-Javascript implementation of java's String.format(), with additions to support formatting a percentage and postfix-SI, like 120M, 30K.
+Javascript implementation of java's String.format(), with additions to support formatting a percentage and postfix-SI, like 120M, 30K. 
 
 Basic start of porting Formatter.format() to javascript. Currently depends on .toLocaleString() for named-date formatting.
+
+Supported conversion:
+
+- string (%s)
+- float, double, long and int (%d, %f); 
+- number as percentage (%p)
+- number as SI postfix (%i), for example 123.4M, 23K 
+- all numeric date conversion (%tH, %tM etc,) for all browsers
+- named date conversion (Jan, Feb) for all browsers that support Date.toLocaleString()
+
+Supported flags:
+
+- '-': 	The result will be left-justified. 
+- '+':  The result will always include a sign 
+- ' ':  The result will include a leading space for positive values 
+- '0': 	The result will be zero-padded 
+- ',':  The result will include locale-specific grouping separators
+- '(':  The result will enclose negative numbers in parentheses 
 
 Below is a list of examples (scroll to the right to see the output) 
 
